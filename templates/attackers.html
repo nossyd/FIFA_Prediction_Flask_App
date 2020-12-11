@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %}Attackers{% endblock %}
+
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Create five equal columns that floats next to each other */
+    .column {
+      float: none;
+      width: 20%;
+    }
+
+    #title {
+        padding-left: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    #input_name {
+      padding-left: 10px;
+    }
+
+    #first_input_name {
+      padding-left: 20px;
+    }
+
+    #input_field {
+        padding-left: 30px;
+    }
+    
+    #submit {
+        padding: 15px;
+    }
+
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 900px) {
+    .column  {
+      width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+    .column  {
+      width: 100%;
+  }
+}
+    
+    </style>
+</head>
+<div id="wrapper">
+    <form action="#attackers" method="post">
+        <div class="row">
+            <div class="column" style="background-color:#aaa;">
+                <h4 id="title">General Attributes</h4>
+                <p id="first_input_name">Pace:</p>
+                <p id="input_field"><input type="text" name="pace"></p>
+                <p id="first_input_name">Shooting:</p>
+                <p id="input_field"><input type="text" name="shooting"></p>
+                <p id="first_input_name">Passing:</p>
+                <p id="input_field"><input type="text" name="passing"></p>
+                <p id="first_input_name">Dribbling:</p>
+                <p id="input_field"><input type="text" name="dribbling"></p>
+                <p id="first_input_name">Defending:</p>
+                <p id="input_field"><input type="text" name="defending"></p>
+                <p id="first_input_name">Physic:</p>
+                <p id="input_field"><input type="text" name="physic"></p>
+            </div>
+    
+            <div class="column" style="background-color:#bbb;">
+                <h4 id="title">Attacking Attributes</h4>
+                <p id="input_name">Crossing:</p>
+                <p id="input_field"><input type="text" name="crossing"></p>
+                <p id="input_name">Finishing:</p>
+                <p id="input_field"><input type="text" name="finishing"></p>
+                <p id="input_name">Heading:</p>
+                <p id="input_field"><input type="text" name="heading"></p>
+                <p id="input_name">Short Passing:</p>
+                <p id="input_field"><input type="text" name="short_pass"></p>
+                <p id="input_name">Volleys:</p>
+                <p id="input_field"><input type="text" name="volleys"></p>
+            </div>
+    
+            <div class="column" style="background-color:#ccc;">
+                <h4 id="title">Skills Attributes</h4>
+                <p id="input_name">Skill Dribbling:</p>
+                <p id="input_field"><input type="text" name="skill_dribbling"></p>
+                <p id="input_name">Free Kicks:</p>
+                <p id="input_field"><input type="text" name="fk_accuracy"></p>
+                <p id="input_name">Long Passes:</p>
+                <p id="input_field"><input type="text" name="long_pass"></p>
+                <p id="input_name">Ball Control:</p>
+                <p id="input_field"><input type="text" name="ball_control"></p>
+            </div>
+    
+            <div class="column" style="background-color:#ddd;">
+                <h4 id="title">Movement Attributes</h4>
+                <p id="input_name">Aggression:</p>
+                <p id="input_field"><input type="text" name="aggression"></p>
+                <p id="input_name">Interceptions:</p>
+                <p id="input_field"><input type="text" name="interceptions"></p>
+                <p id="input_name">Positioning:</p>
+                <p id="input_field"><input type="text" name="positioning"></p>
+                <p id="input_name">Vision:</p>
+                <p id="input_field"><input type="text" name="vision"></p>
+                <p id="input_name">Penalties:</p>
+                <p id="input_field"><input type="text" name="penalties"></p>
+                <p id="input_name">Composure:</p>
+                <p id="input_field"><input type="text" name="composure"></p>
+            </div>
+    
+            <div class="column" style="background-color:#eee;">
+                <h4 id="title">Defending Attributes</h4>
+                <p id="input_name">Marking:</p>
+                <p id="input_field"><input type="text" name="marking"></p>
+                <p id="input_name">Standing Tackle:</p>
+                <p id="input_field"><input type="text" name="stand_tackle"></p>
+                <p id="input_name">Sliding Tackle:</p>
+                <p id="input_field"><input type="text" name="slide_tackle"></p>
+            </div>
+                
+    
+        </div>
+    
+        <p id="submit"><input type="submit" value="submit"></p>
+    </form>
+</div>
+
+{% endblock %}
+
