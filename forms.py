@@ -22,11 +22,26 @@ class OvrPredictForm(FlaskForm):
 
     # Skills Attributes
     skill_dribbling = IntegerField('Skill Dribbling', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+    curve = IntegerField('Curve', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
     fk_accuracy = IntegerField('Free Kicks', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
     long_pass = IntegerField('Long Passes', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
     ball_control = IntegerField('Ball Control', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
 
     # Movement Attributes
+    acceleration = IntegerField('Acceleration', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+    sprint_speed = IntegerField('Sprint Speed', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+    agility = IntegerField('Agility', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+    reactions = IntegerField('Reactions', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+    balance = IntegerField('Balance', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+
+    # Power Attributes   
+    shot_power = IntegerField('Shot Power', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+    jumping = IntegerField('Jumping', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+    stamina = IntegerField('Stamina', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+    strength = IntegerField('Strength', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+    long_shots = IntegerField('Long Shots', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
+
+    # Mentality Attributes
     aggression = IntegerField('Aggression', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
     interceptions = IntegerField('Interceptions', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
     positioning = IntegerField('Positioning', validators=[NumberRange(min=0, max=99, message=error_message), DataRequired(message=error_message)])
