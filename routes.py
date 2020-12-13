@@ -92,7 +92,7 @@ def attackers():
         prediction = atk_model.predict([np.array(list(data))])
 
         output = prediction[0]
-        return jsonify(output)
+        return render_template('attackers.html', prediction_text='Overall rating should be {}'.format(output), form=form)
 
     #if request.method == 'POST':
         # try converting json dict to list
