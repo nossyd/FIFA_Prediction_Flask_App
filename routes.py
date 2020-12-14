@@ -9,6 +9,8 @@ import forms
 
 model_columns = load("model_columns.pkl")
 atk_model = load("fifa_atk_regressor.pkl")
+mid_model = load("fifa_mid_regressor.pkl")
+def_model = load("fifa_def_regressor.pkl")
 
 def outfield_predict(model):
 
@@ -36,19 +38,70 @@ def home():
 
 
 @app.route('/attackers', methods=['GET','POST'])
+
 def attackers():
+    try:
+        form = forms.OvrPredictForm()
+        if form.validate_on_submit() and request.method == 'POST':
+            try:
+                session['atk_output'] = outfield_predict(atk_model)
+                #flash('Prediction Updated')
+            except:
+                print('Prediction Unsuccessful')
+        atk_output = session['atk_output']
+        return render_template('attackers.html',
+                                atk_output=atk_output,
+                                form=form)
+    except:
+        form = forms.OvrPredictForm()
+        atk_output = 0
+        return render_template('attackers.html',
+                                atk_output=atk_output,
+                                form=form)
+            
 
-    form = forms.OvrPredictForm()
-    if form.validate_on_submit() and request.method == 'POST':
-        try:
-            session['output'] = outfield_predict(atk_model)
-            #flash('Prediction Updated')
-        except:
-            print('Prediction Unsuccessful')
+
+@app.route('/midfielders', methods=['GET','POST'])
+def midfielders():
+
+    try:
+        form = forms.OvrPredictForm()
+        if form.validate_on_submit() and request.method == 'POST':
+            try:
+                session['mid_output'] = outfield_predict(mid_model)
+                #flash('Prediction Updated')
+            except:
+                print('Prediction Unsuccessful')
+        mid_output = session['mid_output']
+        return render_template('midfielders.html',
+                                mid_output=mid_output,
+                                form=form)
+    except:
+        form = forms.OvrPredictForm()
+        mid_output = 0
+        return render_template('midfielders.html',
+                                mid_output=mid_output,
+                                form=form)
 
 
+@app.route('/defenders', methods=['GET','POST'])
+def defenders():
 
-    output = session['output']
-    return render_template('attackers.html',
-                            output=output,
-                            form=form)
+    try:
+        form = forms.OvrPredictForm()
+        if form.validate_on_submit() and request.method == 'POST':
+            try:
+                session['def_output'] = outfield_predict(def_model)
+                #flash('Prediction Updated')
+            except:
+                print('Prediction Unsuccessful')
+        def_output = session['def_output']
+        return render_template('defenders.html',
+                                def_output=def_output,
+                                form=form)
+    except:
+        form = forms.OvrPredictForm()
+        def_output = 0
+        return render_template('defenders.html',
+                                def_output=def_output,
+                                form=form)

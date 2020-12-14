@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% block title %}Defenders{% endblock %}
+
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FIFA Predictions - Defenders</title>
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Create seven equal columns that floats next to each other */
+    .column {
+      float: none;
+      width: 14%;
+      padding-left: 10px
+    }
+
+    #input_name {
+      padding-right: 50px;
+    }
+    
+    #submit {
+        padding: 12px;
+    }
+
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 900px) {
+    .column  {
+      width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+    .column  {
+      width: 100%;
+  }
+}
+
+body{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+    
+    </style>
+</head>
+
+<body>
+        <div id="wrapper">
+            <form action="{{ url_for('defenders') }}" method="post">
+                {{ form.csrf_token }}
+                <center>
+                    <div class="row">
+                        <div class="column" style="background-color:#A7E6D7;">
+                            <h4 id="title">General Attributes</h4>
+                            <p id="input_name">Pace:</p>
+                            {{ form.pace(class="form-control") }}
+                            <p id="input_name">Shooting:</p>
+                            {{ form.shoot(class="form-control") }}
+                            <p id="input_name">Passing:</p>
+                            {{ form.passing(class="form-control") }}
+                            <p id="input_name">Dribbling:</p>
+                            {{ form.dribble(class="form-control") }}
+                            <p id="input_name">Defending:</p>
+                            {{ form.defend(class="form-control") }}
+                            <p id="input_name">Physic:</p>
+                            {{ form.physic(class="form-control") }}
+                        </div>
+                
+                        <div class="column" style="background-color:#8CE2D0;">
+                            <h4 id="title">Attacking Attributes</h4>
+                            <p id="input_name">Crossing:</p>
+                            {{ form.crossing(class="form-control") }}
+                            <p id="input_name">Finishing:</p>
+                            {{ form.finishing(class="form-control") }}
+                            <p id="input_name">Heading:</p>
+                            {{ form.heading(class="form-control") }}
+                            <p id="input_name">Short Passing:</p>
+                            {{ form.short_pass(class="form-control") }}
+                            <p id="input_name">Volleys:</p>
+                            {{ form.volleys(class="form-control") }}
+                        </div>
+                
+                        <div class="column" style="background-color:#3CDBC0;">
+                            <h4 id="title">Skills Attributes</h4>
+                            <p id="input_name">Skill Dribbling:</p>
+                            {{ form.skill_dribbling(class="form-control") }}
+                            <p id="input_name">Curve:</p>
+                            {{ form.curve(class="form-control") }}
+                            <p id="input_name">Free Kicks:</p>
+                            {{ form.fk_accuracy(class="form-control") }}
+                            <p id="input_name">Long Passes:</p>
+                            {{ form.long_pass(class="form-control") }}
+                            <p id="input_name">Ball Control:</p>
+                            {{ form.ball_control(class="form-control") }}
+                        </div>
+                
+                        <div class="column" style="background-color:#00AB84;">
+                            <h4 id="title"> Movement Attributes</h4>
+                            <p id="input_name">Acceleration:</p>
+                            {{ form.acceleration(class="form-control") }}
+                            <p id="input_name">Sprint Speed:</p>
+                            {{ form.sprint_speed(class="form-control") }}
+                            <p id="input_name">Agility:</p>
+                            {{ form.agility(class="form-control") }}
+                            <p id="input_name">Reactions:</p>
+                            {{ form.reactions(class="form-control") }}
+                            <p id="input_name">Balance:</p>
+                            {{ form.balance(class="form-control") }}
+                        </div>
+
+                        <div class="column" style="background-color:#009775;">
+                            <h4 id="title"> Power Attributes</h4>
+                            <p id="input_name">Shot Power:</p>
+                            {{ form.shot_power(class="form-control") }}
+                            <p id="input_name">Jumping:</p>
+                            {{ form.jumping(class="form-control") }}
+                            <p id="input_name">Stamina:</p>
+                            {{ form.stamina(class="form-control") }}
+                            <p id="input_name">Strength:</p>
+                            {{ form.strength(class="form-control") }}
+                            <p id="input_name">Long Shots:</p>
+                            {{ form.long_shots(class="form-control") }}
+                        </div>
+
+                        <div class="column" style="background-color:#007B5F;">
+                            <h4 id="title"> Mentality Attributes</h4>
+                            <p id="input_name">Aggression:</p>
+                            {{ form.aggression(class="form-control") }}
+                            <p id="input_name">Interceptions:</p>
+                            {{ form.interceptions(class="form-control") }}
+                            <p id="input_name">Positioning:</p>
+                            {{ form.positioning(class="form-control") }}
+                            <p id="input_name">Vision:</p>
+                            {{ form.vision(class="form-control") }}
+                            <p id="input_name">Penalties:</p>
+                            {{ form.penalties(class="form-control") }}
+                            <p id="input_name">Composure:</p>
+                            {{ form.composure(class="form-control") }}
+                        </div>
+                
+                        <div class="column" style="background-color:#00664F;">
+                            <h4 id="title">Defending Attributes</h4>
+                            <p id="input_name">Marking:</p>
+                            {{ form.marking(class="form-control") }}
+                            <p id="input_name">Standing Tackle:</p>
+                            {{ form.stand_tackle(class="form-control") }}
+                            <p id="input_name">Sliding Tackle:</p>
+                            {{ form.slide_tackle(class="form-control") }}
+                        </div>
+                            
+                
+                    </div>
+
+                </center>
+                
+                
+                <!-- #F6EB61 use this color for submit button -->
+                <div>
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+            <p>Defender's overall rating should be: {{ def_output }}</p>
+        </div>
+</body>
+
+
+{% endblock %}
+
