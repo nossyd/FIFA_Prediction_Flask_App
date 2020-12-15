@@ -10,7 +10,7 @@ def_model = load("fifa_def_regressor.pkl")
 app = Flask(__name__)
 app.config.from_object(DevConfig)
 
-from routes import home, attackers, midfielders, defenders
+from routes import *
 
 if __name__ == '__main__':
     app.run()
