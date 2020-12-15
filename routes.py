@@ -2,7 +2,6 @@ from app import app
 from flask import render_template, url_for, request, jsonify, redirect, session, flash
 from joblib import load
 import pandas as pd
-import traceback
 import numpy as np
 
 import forms
